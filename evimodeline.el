@@ -45,7 +45,7 @@
       (evimodeline-skip-space)
       (let ((modeline
              (if (looking-at "set? ")
-                                        ; compat-style modeline
+                 ; compat-style modeline
                  (progn
                    (forward-char 4)
                    (evimodeline-skip-space)
@@ -53,7 +53,7 @@
                      (end-of-line)
                      (search-backward ":" start t)
                      (buffer-substring-no-properties start (point))))
-                                        ; new-style modeline
+               ; new-style modeline
                (let ((start (point)))
                  (end-of-line)
                  (buffer-substring-no-properties start (point))))))

@@ -36,13 +36,13 @@
   (save-excursion
     (beginning-of-buffer)
     (when (search-forward-regexp "\\(vi\\|vim\\|ex\\):" (point-max) t)
-      (evimodeline-skip-space)
+      (skip-chars-forward " \t")
       (let ((modeline
              (if (looking-at "set? ")
                  ; compat-style modeline
                  (progn
                    (forward-char 4)
-                   (evimodeline-skip-space)
+                   (skip-chars-forward " \t")
                    (let ((start (point)))
                      (end-of-line)
                      (search-backward ":" start t)
@@ -53,8 +53,6 @@
                  (buffer-substring-no-properties start (point))))))
         (mapcar 'evimodeline-split-equals
                 (split-string modeline ":\\|[ \t]+"))))))
-
-(defun evimodeline-skip-space () (skip-chars-forward " \t"))
 
 (defun evimodeline-split-equals (s)
   (string-match "\\([^=]+\\)\\(?:=\\(.*\\)\\)?" s)

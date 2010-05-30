@@ -12,7 +12,7 @@
 (defun evimodeline-has-emacs-modeline ()
   (save-excursion
     (beginning-of-buffer)
-    (not (null (search-forward-regexp "-\\*-[^\n]+-\\*-" (point-max) t)))))
+    (search-forward-regexp "-\\*-[^\n]+-\\*-" (point-max) t)))
 
 (defun evimodeline-apply-mode (mode)
   (let ((m (car mode))

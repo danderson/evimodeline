@@ -89,3 +89,5 @@
     (if (match-string 2 s)
         (cons (match-string 1 s) (match-string 2 s))
       (cons s nil))))
+
+(provide 'evimodeline)

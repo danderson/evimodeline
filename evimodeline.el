@@ -1,4 +1,8 @@
-;; Copyright (c) 2010 David Anderson <dave@natulte.net>
+;;; evimodeline.el --- Vim modeline support
+;;
+;; Copyright (c) 2010  David Anderson
+;;
+;; Author: David Anderson <dave@natulte.net>
 ;;
 ;; Permission is hereby granted, free of charge, to any person
 ;; obtaining a copy of this software and associated documentation
@@ -20,6 +24,7 @@
 ;; CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 ;; SOFTWARE.
 ;;
+;;; Commentary:
 ;;
 ;; Vim modeline support for Emacs. If a loaded file doesn't have Emacs
 ;; file-local variable declarations (the -*- ... -*- thing), this
@@ -28,7 +33,8 @@
 ;; whitespace handling). To enable, add to your config:
 ;;
 ;; (add-hook 'find-file-hook 'evimodeline-find-file-hook)
-;;
+
+;;; Code:
 
 (defun evimodeline-find-file-hook ()
   (when (not (evimodeline-has-emacs-modeline))
